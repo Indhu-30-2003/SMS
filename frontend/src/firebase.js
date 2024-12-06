@@ -1,10 +1,10 @@
 //to initialize firebase in our project
-
 import { initializeApp } from "firebase/app";
-
 //for authentication purpose
-
 import { getAuth } from "firebase/auth";
+import { getFirestore, collection, addDoc, query, where, getDocs } from "firebase/firestore";
+
+
 
 //unique credintials
 
@@ -18,8 +18,11 @@ const firebaseConfig = {
   measurementId: "G-6V9L3JFBX1"
 };
 
-
+// Initialize Firebase app
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
-export default auth
+// Initialize Firebase Authentication and Firestore
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+export { auth, db , collection, addDoc, query, where, getDocs };
